@@ -2,6 +2,16 @@ console.log('wtf')
 
 const toDoItems = []
 
+// Get user name
+getName = () => {
+  let user = prompt('Please enter your name', 'Air Bud');
+  if (user !== null) {
+    document.querySelector('.user').innerHTML = user;
+    return;
+  } 
+}
+
+// Real time clock
 function realTimeClock() {
   const rtClock = new Date();
 
@@ -45,11 +55,11 @@ function greetings() {
 
   //morning, afternoon, evening condition
   if (time < 12 && time >= 6) {
-    greeting = "Good Morning Meghan";
+    greeting = `Good Morning`;
   } else if (time >= 12 && time < 17) {
-    greeting = "Good Afternoon Meghan";
+    greeting = `Good Afternoon`;
   } else if (time >= 17 && time < 22) {
-    greeting = "Good Evening Meghan";
+    greeting = `Good Evening`;
   } else {
     greeting = "GO TO BED! "
   }
@@ -80,14 +90,16 @@ clearTasks = () => {
   })
 }
 
-// Collect user input and print out dyanmically
+// Get user input and print out dyanmically
 $('form').on('submit', function(e){
   e.preventDefault();
+
+  // save();
   
   const userInput = $('.form-control').val();
   console.log(userInput);
   $('#hide').hide();
-  
+
   //create list item
   const item = `<li>${userInput}<i class="fas fa-trash-alt trash"></i><i class="fas fa-check done"</i></li>`;
   
@@ -98,7 +110,7 @@ $('form').on('submit', function(e){
 })
 
 // delete specific input
-deleteTask = () => {
+deleteTask = (index) => {
   $('.trash').on('click', function(){
     console.log('this is trash');
     $(this.parentElement).hide();
@@ -111,6 +123,8 @@ completeTask = () => {
   })
 }
 
+// view();
+getName();
 getInfo();
 realTimeClock();
 realTimeDate();

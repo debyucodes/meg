@@ -150,6 +150,7 @@ form {
 .muteText {
   color: grey;
   opacity: 0.5;
+  text-decoration: line-through;
 }
 
 .list li{
